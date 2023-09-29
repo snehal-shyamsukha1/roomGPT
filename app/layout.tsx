@@ -5,7 +5,7 @@ import "../styles/globals.css";
 let title = "GamePac ImageGen";
 let description="Using AI to generate images";
 let sitename="gamePac imageGen";
-let ogimage="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiJd0rK1c9vmIMXoL5LPYjvGZZlYoNJxQ5gA&usqp=CAU";
+let ogimage="https://design.gamepacai.com/camille-vs-jhin-wallpaper.jpg";
 
 export const metadata: Metadata = {
   title,
