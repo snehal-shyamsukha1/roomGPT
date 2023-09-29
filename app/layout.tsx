@@ -3,8 +3,8 @@ import { Metadata } from "next";
 import "../styles/globals.css";
 
 let title = "GamePac ImageGen";
-let description = "Generate your dream room in seconds.";
-let ogimage = "https://roomgpt-demo.vercel.app/og-image.png";
+let description = "Using AI to generate crisp images";
+// let ogimage = "https://roomgpt-demo.vercel.app/og-image.png";
 let sitename = "GamePac imageGen";
 
 export const metadata: Metadata = {

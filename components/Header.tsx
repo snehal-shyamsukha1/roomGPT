@@ -22,7 +22,7 @@ export default function Header() {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Github />
+        {/* <Github /> */}
         <p>Visit GamePac</p>
       </a>
     </header>
