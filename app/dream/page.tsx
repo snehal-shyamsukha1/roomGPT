@@ -90,7 +90,7 @@ export default function DreamPage() {
 
     let newPhoto = await res.json();
     if (res.status !== 200) {
-      setError(newPhoto);
+      setError(newPhoto.errorMessage || JSON.stringify(newPhoto));
     } else {
       setRestoredImage(newPhoto[1]);
     }
@@ -239,7 +239,7 @@ export default function DreamPage() {
                   className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-xl mt-8"
                   role="alert"
                 >
-                  <span className="block sm:inline">{error}</span>
+                  <span className="block sm:inline">{JSON.stringify(error)}</span>
                 </div>
               )}
               <div className="flex space-x-2 justify-center">
