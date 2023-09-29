@@ -5,7 +5,7 @@ import "../styles/globals.css";
 let title = "GamePac ImageGen";
 let description = "Generate your dream room in seconds.";
 let ogimage = "https://roomgpt-demo.vercel.app/og-image.png";
-let sitename = "roomGPT.io";
+let sitename = "GamePac imageGen";
 
 export const metadata: Metadata = {
   title,
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
   },
   openGraph: {
-    images: [ogimage],
+    // images: [ogimage],
     title,
     description,
     url: "https://design.gamepacai.com/",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    images: [ogimage],
+    // images:[ogimage],
     title,
     description,
   },
