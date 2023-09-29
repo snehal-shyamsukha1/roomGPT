@@ -9,7 +9,7 @@ export default function HomePage() {
     <div className="flex max-w-6xl mx-auto flex-col items-center justify-center py-2 min-h-screen">
       <Header />
       <main className="flex flex-1 w-full flex-col items-center justify-center text-center px-4 sm:mt-20 mt-20 background-gradient">
-        <a
+        {/* <a
           href="https://vercel.fyi/roomGPT"
           target="_blank"
           rel="noreferrer"
@@ -17,7 +17,10 @@ export default function HomePage() {
         >
           Clone and deploy your own with{" "}
           <span className="text-blue-600">Vercel</span>
-        </a>
+        </a> */}
+         <h2 className="mx-auto mt-12 max-w-xl text-lg sm:text-gray-400  text-gray-500 leading-7">
+         GamePac ImageGen v0.0.1
+        </h2>
         <h1 className="mx-auto max-w-4xl font-display text-5xl font-bold tracking-normal text-gray-300 sm:text-7xl">
           Generating dream rooms{" "}
           <span className="relative whitespace-nowrap text-blue-600">
@@ -28,7 +31,7 @@ export default function HomePage() {
         </h1>
         <h2 className="mx-auto mt-12 max-w-xl text-lg sm:text-gray-400  text-gray-500 leading-7">
           Take a picture of your room and see how your room looks in different
-          themes. 100% free – remodel your room today.
+          themes.
         </h2>
         <Link
           className="bg-blue-600 rounded-xl text-white font-medium px-4 py-3 sm:mt-10 mt-8 hover:bg-blue-500 transition"
