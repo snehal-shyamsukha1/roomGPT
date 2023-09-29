@@ -5,7 +5,7 @@ import "../styles/globals.css";
 let title = "GamePac ImageGen";
 let description="Using AI to generate images";
 let sitename="gamePac imageGen";
-let ogimage="";
+let ogimage="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiJd0rK1c9vmIMXoL5LPYjvGZZlYoNJxQ5gA&usqp=CAU";
 
 export const metadata: Metadata = {
   title,
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
   },
   openGraph: {
-    // images: [ogimage],
+    images: [ogimage],
     title,
     description,
     url: "https://design.gamepacai.com/",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    // images:[ogimage],
+    images:[ogimage],
     title,
     description,
   },
