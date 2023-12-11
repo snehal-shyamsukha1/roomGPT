@@ -16,6 +16,7 @@ import appendNewToName from "../../utils/appendNewToName";
 import downloadPhoto from "../../utils/downloadPhoto";
 import DropDown from "../../components/DropDown";
 import { roomType, rooms, themeType, themes } from "../../utils/dropdownTypes";
+import { text } from "stream/consumers";
 
 const options: UploadWidgetConfig = {
   apiKey: !!process.env.NEXT_PUBLIC_UPLOAD_API_KEY
@@ -50,7 +51,8 @@ export default function DreamPage() {
   const [error, setError] = useState<string | null>(null);
   const [photoName, setPhotoName] = useState<string | null>(null);
   const [theme, setTheme] = useState<themeType>("Modern");
-  const [room, setRoom] = useState<roomType>("Living Room");
+  const[customprompt,setCustomprompt]=useState('');
+  const [room, setRoom] = useState<roomType>("LIVING ROOM");
 
   const UploadDropZone = () => (
     <UploadDropzone
@@ -80,12 +82,13 @@ export default function DreamPage() {
   async function generatePhoto(fileUrl: string) {
     await new Promise((resolve) => setTimeout(resolve, 200));
     setLoading(true);
+    console.log(customprompt);
     const res = await fetch("/generate", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ imageUrl: fileUrl, theme, room }),
+      body: JSON.stringify({ imageUrl: fileUrl,customprompt, room }),
     });
 
     let newPhoto = await res.json();
@@ -112,29 +115,9 @@ export default function DreamPage() {
               {!restoredImage && (
                 <>
                   <div className="space-y-4 w-full max-w-sm">
-                    <div className="flex mt-3 items-center space-x-3">
-                      <Image
-                        src="/number-1-white.svg"
-                        width={30}
-                        height={30}
-                        alt="1 icon"
-                      />
-                      <p className="text-left font-medium">
-                        Choose your room theme.
-                      </p>
-                    </div>
-                    <DropDown
-                      theme={theme}
-                      setTheme={(newTheme) =>
-                        setTheme(newTheme as typeof theme)
-                      }
-                      themes={themes}
-                    />
-                  </div>
-                  <div className="space-y-4 w-full max-w-sm">
                     <div className="flex mt-10 items-center space-x-3">
                       <Image
-                        src="/number-2-white.svg"
+                        src="/number-1-white.svg"
                         width={30}
                         height={30}
                         alt="1 icon"
@@ -147,6 +130,27 @@ export default function DreamPage() {
                       theme={room}
                       setTheme={(newRoom) => setRoom(newRoom as typeof room)}
                       themes={rooms}
+                    />
+                  </div>
+                  <div className="space-y-4 w-full max-w-sm">
+                    <div className="flex mt-3 items-center space-x-3">
+                      <Image
+                        src="/number-2-white.svg"
+                        width={30}
+                        height={30}
+                        alt="1 icon"
+                      />
+                      <p className="text-left font-medium">
+                        Prompt the details of your Custom Room 
+                      </p>
+                    </div>
+                    <input
+                      type="text"
+                      value={customprompt}
+                      onChange={(e) => setCustomprompt(e.target.value)}
+                      placeholder="Custom Prompt"
+                      className="border border-gray-300 rounded-md p-2"
+                      style={{ color: "black" }}
                     />
                   </div>
                   <div className="mt-4 w-full max-w-sm">
@@ -166,8 +170,7 @@ export default function DreamPage() {
               )}
               {restoredImage && (
                 <div>
-                  Here's your remodeled <b>{room.toLowerCase()}</b> in the{" "}
-                  <b>{theme.toLowerCase()}</b> theme!{" "}
+                  Here's your remodeled <b>{room.toLowerCase()}</b> having{" "} <b>{customprompt}</b> theme!{" "}
                 </div>
               )}
               <div
